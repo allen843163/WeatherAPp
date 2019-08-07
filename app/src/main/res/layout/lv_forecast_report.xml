@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/custom_ripple_01"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintVertical_bias="0.1"
+                android:text="楠梓區"
+                android:textSize="30sp"
+                android:id="@+id/tv_county_name"/>
+
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_county_name"
+                app:layout_constraintStart_toStartOf="@id/tv_county_name"
+                android:layout_marginStart="10dp"
+                android:text="現在 ～"
+                android:textSize="20sp"
+                android:id="@+id/tv_now"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_county_name"
+                app:layout_constraintStart_toEndOf="@id/tv_county_name"
+                android:text="2019-08-07 18:00:00"
+                android:textSize="20sp"
+                android:id="@+id/tv_first_time"/>
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_now"
+                app:layout_constraintStart_toStartOf="@id/tv_now"
+                android:layout_marginStart="20dp"
+                android:text="降雨機率："
+                android:textSize="20sp"
+                android:id="@+id/tv_pop"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_now"
+                app:layout_constraintStart_toEndOf="@id/tv_pop"
+                android:text="%"
+                android:textSize="20sp"
+                android:id="@+id/tv_pop_value"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_pop_value"
+                app:layout_constraintStart_toStartOf="@id/tv_county_name"
+                android:layout_marginStart="10dp"
+                android:text="2019-08-07 18:00:00"
+                android:textSize="20sp"
+                android:id="@+id/tv_first_time2"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_pop_value"
+                app:layout_constraintStart_toEndOf="@id/tv_first_time2"
+                android:text="～之後"
+                android:textSize="20sp"
+                android:id="@+id/tv_future"/>
+
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_first_time2"
+                app:layout_constraintStart_toStartOf="@id/tv_first_time2"
+                android:layout_marginStart="20dp"
+                android:text="降雨機率："
+                android:textSize="20sp"
+                android:id="@+id/tv_pop2"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_first_time2"
+                app:layout_constraintStart_toEndOf="@id/tv_pop2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="%"
+                android:textSize="20sp"
+                android:id="@+id/tv_pop_value2"
+                android:layout_marginBottom="10dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+              app:layout_constraintBottom_toBottomOf="parent"
+              android:background="#000000"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

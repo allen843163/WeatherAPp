@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:startDestination="@id/page1Fragment">
+
+    <fragment
+            android:id="@+id/page1Fragment"
+            android:name="com.allen.weatherapp.ui.main.MainFragment"
+            android:label="fragment_page1"
+            tools:layout="@layout/fragment_main">
+        <action
+                android:id="@+id/action_page2"
+                app:destination="@id/page2Fragment" />
+
+        <action
+                android:id="@+id/action_dialog1"
+                app:destination="@id/dialog1Fragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/page2Fragment"
+            android:name="com.allen.weatherapp.ui.weatherforecast.WeatherForecastFragment"
+            android:label="fragment_page2"
+            tools:layout="@layout/fragment_weather_forecast">
+        <action
+                android:id="@+id/action_page1"
+                app:popUpTo="@id/page1Fragment" />
+    </fragment>
+
+    <dialog
+            android:id="@+id/dialog1Fragment"
+            android:name="com.allen.weatherapp.ui.countyselect.CountySelectDialog">
+        <action
+                android:id="@+id/action_page2"
+                app:destination="@id/page2Fragment" />
+    </dialog>
+
+</navigation>
