@@ -11,7 +11,7 @@ import com.allen.weatherapp.R
 
 class MainVM(application : Application) : AndroidViewModel(application) {
     fun showCountySelectDialog(view : View) {
-        Log.d("Allen", "asd123")
+
         Navigation.findNavController(view).navigate(R.id.action_dialog1)
     }
 }

@@ -65,7 +65,7 @@ class CountySelectDialog : DialogFragment(), CountySelectNavigator {
     inner class MyAdaper : RecyclerView.Adapter<MyViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.lv_county_select, parent, false)
-            Log.d("Allen123", CWB_API_CountyCode.values().size.toString())
+
             return MyViewHolder(view)
         }
 

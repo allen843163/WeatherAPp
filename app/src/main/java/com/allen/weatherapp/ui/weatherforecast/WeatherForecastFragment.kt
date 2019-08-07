@@ -31,8 +31,6 @@ class WeatherForecastFragment : Fragment() {
 
         binding.weatherforecastviewmodel = viewModel
 
-        Log.d("allen123", "asd")
-
         arguments?.let {
             binding.root.findViewById<RecyclerView>(R.id.lv_forecast_report).adapter = get<ForecastReportAdapter>{
                 parametersOf(it.getParcelable<WeatherForecast.Response.Records>("record"))
