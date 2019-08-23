@@ -10,15 +10,22 @@
             android:layout_height="match_parent">
 
             <Button
-                android:layout_height="60dp"
-                android:layout_width="200dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="一般天氣預報"
-                android:onClick="@{(v) -> mainviewmodel.showCountySelectDialog(v)}"
-                />
+                    android:layout_height="60dp"
+                    android:layout_width="200dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="一般天氣預報"
+                    android:onClick="@{(v) -> mainviewmodel.showCountySelectDialog(v)}"/>
 
+            <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:id="@+id/tv_test"
+                    />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
