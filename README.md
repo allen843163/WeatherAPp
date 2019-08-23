@@ -2,4 +2,4 @@
 
 
 
-Android Architecture Practice :  Koin + MVVM + Navigation + Retrofit + Rxjava
+Android Architecture Practice :  Koin + MVVM + Navigation + Retrofit + Rxjava + Lifecycle
