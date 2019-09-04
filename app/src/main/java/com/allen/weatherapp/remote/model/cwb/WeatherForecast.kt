@@ -3,15 +3,14 @@ package com.allen.weatherapp.remote.model.cwb
 import android.annotation.SuppressLint
 import android.os.Parcelable
 import com.allen.weatherapp.Variable
+import com.allen.weatherapp.remote.ProxyRetrofitQueryMap
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
 class WeatherForecast : Parcelable {
-
-    companion object {
-        const val route : String = "api/v1/rest/datastore"
-    }
 
     data class Request (
         val Authorization : String = Variable.CWB_Token,
@@ -30,7 +29,14 @@ class WeatherForecast : Parcelable {
 
         val startTime : List<String>? = null,
 
-        val timeTo : List<String>? = null)
+        val timeTo : List<String>? = null) {
+
+        fun toMap() = run {
+            val gson = GsonBuilder().create()
+
+            gson.fromJson(gson.toJson(this), Map::class.java)
+        }
+    }
 
     data class Response(
         val records: Records,
