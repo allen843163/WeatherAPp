@@ -2,7 +2,6 @@ package com.allen.weatherapp.ui.countyselect
 
 import android.app.Activity
 import android.os.Bundle
-import android.os.Parcelable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,21 +12,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.allen.core.remote.cwb.CWB_API_CountyCode
+import com.allen.core.remote.cwb.model.WeatherForecast
 import com.allen.weatherapp.R
 import com.allen.weatherapp.databinding.DialogCountySelectBinding
 import com.allen.weatherapp.databinding.FragmentMainBinding
 import com.allen.weatherapp.databinding.FragmentWeatherForecastBinding
-import com.allen.weatherapp.remote.CWB_API_CountyCode
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
-import com.allen.weatherapp.ui.weatherforecast.WeatherForecastVM
-import org.koin.android.ext.android.getKoin
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
-import org.koin.core.context.startKoin
 import org.koin.core.parameter.parametersOf
-import org.koin.dsl.koinApplication
-import org.koin.test.check.checkModules
 
 
 class CountySelectDialog : DialogFragment(), CountySelectNavigator {

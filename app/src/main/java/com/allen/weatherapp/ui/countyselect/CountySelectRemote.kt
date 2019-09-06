@@ -1,14 +1,9 @@
 package com.allen.weatherapp.ui.countyselect
 
-import com.allen.weatherapp.App
-import com.allen.weatherapp.remote.ApiService
-import com.allen.weatherapp.remote.CWB_API_CountyCode
-import com.allen.weatherapp.remote.ProxyRetrofitQueryMap
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import org.koin.android.ext.android.getKoin
-import org.koin.core.parameter.parametersOf
+import com.allen.core.remote.ProxyRetrofitQueryMap
+import com.allen.core.remote.cwb.ApiService
+import com.allen.core.remote.cwb.CWB_API_CountyCode
+import com.allen.core.remote.cwb.model.WeatherForecast
 import java.util.*
 
 class CountySelectRemote (val apiService: ApiService) {

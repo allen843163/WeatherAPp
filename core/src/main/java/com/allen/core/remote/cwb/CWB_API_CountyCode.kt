@@ -1,4 +1,4 @@
-package com.allen.weatherapp.remote
+package com.allen.core.remote.cwb
 
 enum class CWB_API_CountyCode(val apiCode : String) {
     宜蘭縣("F-D0047-001"),

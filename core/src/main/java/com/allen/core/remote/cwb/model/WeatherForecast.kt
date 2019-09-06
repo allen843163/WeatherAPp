@@ -1,10 +1,7 @@
-package com.allen.weatherapp.remote.model.cwb
+package com.allen.core.remote.cwb.model
 
-import android.annotation.SuppressLint
 import android.os.Parcelable
-import com.allen.weatherapp.Variable
-import com.allen.weatherapp.remote.ProxyRetrofitQueryMap
-import com.google.gson.Gson
+import com.allen.core.remote.cwb.Variable
 import com.google.gson.GsonBuilder
 import kotlinx.android.parcel.Parcelize
 

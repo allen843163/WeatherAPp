@@ -40,16 +40,8 @@ android {
 }
 
 dependencies {
-//    def dagger_version = "2.24"
-    def koin_version = "2.0.1"
-    def retrofit_version = "2.3.0"
-    def lifecycle_version = "2.0.0"
-    def navigation_version = "2.1.0-beta02"
-    def mock_version = "1.9.3"
-    def mockWebServer_version = "4.1.0"
-    def okhttp3_version = "4.1.0"
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':core')
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
@@ -65,11 +57,11 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     //rxjava
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.7'
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
 
     //gson
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.google.code.gson:gson:$gson_version"
 
     //okhttp3
     implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"

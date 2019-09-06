@@ -1,22 +1,9 @@
 package com.allen.weatherapp
 
-import android.app.Application
-import android.content.Context
-import android.util.Log
-import androidx.lifecycle.ViewModel
-import androidx.test.InstrumentationRegistry
-import com.allen.weatherapp.remote.ApiService
-import com.allen.weatherapp.remote.CWB_API_CountyCode
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
 import com.allen.weatherapp.ui.countyselect.CountySelectNavigator
 import com.allen.weatherapp.ui.countyselect.CountySelectVM
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.Scheduler
-import io.reactivex.internal.operators.observable.ObservableCreate
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.subscribers.TestSubscriber
 import org.junit.After
 import org.junit.Test
 import org.junit.Before
@@ -26,8 +13,10 @@ import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
 import org.koin.test.get
 import androidx.test.core.app.ApplicationProvider
+import com.allen.core.remote.cwb.CWB_API_CountyCode
+import com.allen.core.remote.cwb.model.TestData
+import com.allen.core.remote.cwb.model.WeatherForecast
 import com.allen.weatherapp.di.*
-import com.allen.weatherapp.remote.TestData
 import com.allen.weatherapp.ui.countyselect.CountySelectModule
 import com.google.gson.GsonBuilder
 import io.mockk.*
@@ -36,7 +25,6 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.runner.RunWith
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.parameter.parametersOf
-import org.koin.core.qualifier.named
 import org.robolectric.RobolectricTestRunner
 
 /**

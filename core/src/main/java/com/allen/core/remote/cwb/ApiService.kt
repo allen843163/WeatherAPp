@@ -1,9 +1,8 @@
-package com.allen.weatherapp.remote
+package com.allen.core.remote.cwb
 
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
+import com.allen.core.remote.ProxyRetrofitQueryMap
+import com.allen.core.remote.cwb.model.WeatherForecast
 import io.reactivex.Observable
-import okhttp3.HttpUrl
-import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ApiService {
@@ -14,4 +13,5 @@ interface ApiService {
     @Headers("Content-Type: application/json;charset=UTF-8","Accept: application/json")
     @GET("api/v1/rest/datastore/{countyCode}")
     fun getWeatherForecast(@Path("countyCode") countyCode: String, @QueryMap queryMap: ProxyRetrofitQueryMap): Observable<WeatherForecast.Response>
+
 }

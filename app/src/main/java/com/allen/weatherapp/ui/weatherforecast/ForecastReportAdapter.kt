@@ -1,14 +1,12 @@
 package com.allen.weatherapp.ui.weatherforecast
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.allen.core.remote.cwb.model.WeatherForecast
 import com.allen.weatherapp.R
-import com.allen.weatherapp.remote.CWB_API_CountyCode
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
 
 class ForecastReportAdapter(val reportData : WeatherForecast.Response.Records) : RecyclerView.Adapter<ForecastReportAdapter.MyViewHolder>() {
 

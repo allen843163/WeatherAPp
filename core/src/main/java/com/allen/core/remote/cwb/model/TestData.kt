@@ -1,6 +1,6 @@
-package com.allen.weatherapp.remote
+package com.allen.core.remote.cwb.model
 
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
+import com.allen.core.remote.cwb.model.WeatherForecast
 
 object TestData {
     val WeatherForecast_Response_Test1 =

@@ -1,7 +1,6 @@
 package com.allen.weatherapp.ui.countyselect
 
-import android.os.Bundle
-import com.allen.weatherapp.remote.model.cwb.WeatherForecast
+import com.allen.core.remote.cwb.model.WeatherForecast
 
 interface CountySelectNavigator {
     fun gotoWeatherForecast(record : WeatherForecast.Response.Records)
