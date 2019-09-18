@@ -5,7 +5,7 @@ import com.allen.core.remote.cwb.model.WeatherForecast
 import io.reactivex.Observable
 import retrofit2.http.*
 
-interface ApiService {
+interface CWB_ApiService {
     companion object {
         const val BASE_URL = "https://opendata.cwb.gov.tw/"
     }

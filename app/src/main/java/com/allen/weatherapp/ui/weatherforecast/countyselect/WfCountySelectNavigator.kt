@@ -1,7 +1,7 @@
-package com.allen.weatherapp.ui.countyselect
+package com.allen.weatherapp.ui.weatherforecast.countyselect
 
 import com.allen.core.remote.cwb.model.WeatherForecast
 
-interface CountySelectNavigator {
+interface WfCountySelectNavigator {
     fun gotoWeatherForecast(record : WeatherForecast.Response.Records)
 }

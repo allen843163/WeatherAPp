@@ -1,4 +1,4 @@
-package com.allen.weatherapp.ui.countyselect
+package com.allen.weatherapp.ui.weatherforecast.countyselect
 
 import android.app.Activity
 import android.os.Bundle
@@ -10,27 +10,26 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.allen.core.remote.cwb.CWB_API_CountyCode
 import com.allen.core.remote.cwb.model.WeatherForecast
 import com.allen.weatherapp.R
-import com.allen.weatherapp.databinding.DialogCountySelectBinding
-import com.allen.weatherapp.databinding.FragmentMainBinding
-import com.allen.weatherapp.databinding.FragmentWeatherForecastBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.parameter.parametersOf
+import com.allen.weatherapp.databinding.DialogWeatherForecastCountySelectBinding
 
 
-class CountySelectDialog : DialogFragment(), CountySelectNavigator {
+class WfCountySelectDialog : DialogFragment(),
+    WfCountySelectNavigator {
     init {
-        loadKoinModules(CountySelectModule)
+        loadKoinModules(WfCountySelectModule)
     }
 
-    lateinit var binding : DialogCountySelectBinding
+    lateinit var binding : DialogWeatherForecastCountySelectBinding
 
-    val viewModel : CountySelectVM by viewModel { parametersOf(this) }
+    val viewModel : WfCountySelectVM by viewModel { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,7 @@ class CountySelectDialog : DialogFragment(), CountySelectNavigator {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_county_select, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_weather_forecast_county_select, container, false)
 
         binding.countyselectviewmodel = viewModel
 
@@ -53,12 +52,11 @@ class CountySelectDialog : DialogFragment(), CountySelectNavigator {
     }
 
     override fun gotoWeatherForecast(record: WeatherForecast.Response.Records) {
+        Log.d("Allen", "gosssad")
 
         val bundle = bundleOf("record" to record)
 
-        activity?.let {
-            Navigation.findNavController(it as Activity,R.id.my_nav_host_fragment).navigate(R.id.action_page2,bundle)
-        }
+        findNavController().navigate(R.id.action_dialog1Fragment_to_page2Fragment,bundle)
     }
 
     inner class MyAdaper : RecyclerView.Adapter<MyViewHolder>() {

@@ -1,4 +1,4 @@
-package com.allen.weatherapp.ui.weatherforecast
+package com.allen.weatherapp.ui.weatherforecast.detail
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

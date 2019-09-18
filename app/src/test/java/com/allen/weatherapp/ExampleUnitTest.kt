@@ -1,7 +1,7 @@
 package com.allen.weatherapp
 
-import com.allen.weatherapp.ui.countyselect.CountySelectNavigator
-import com.allen.weatherapp.ui.countyselect.CountySelectVM
+import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectNavigator
+import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectVM
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
 import org.junit.After
@@ -17,7 +17,7 @@ import com.allen.core.remote.cwb.CWB_API_CountyCode
 import com.allen.core.remote.cwb.model.TestData
 import com.allen.core.remote.cwb.model.WeatherForecast
 import com.allen.weatherapp.di.*
-import com.allen.weatherapp.ui.countyselect.CountySelectModule
+import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectModule
 import com.google.gson.GsonBuilder
 import io.mockk.*
 import okhttp3.mockwebserver.MockResponse
@@ -46,7 +46,7 @@ class ExampleUnitTest : KoinTest {
         startKoin {
             androidLogger()
             androidContext(ApplicationProvider.getApplicationContext<App>())
-            modules(listOf(CountySelectModule, TestRemoteModule, AppModule, WeatherForecastModule))
+            modules(listOf(WfCountySelectModule, TestRemoteModule, AppModule, WeatherForecastModule))
         }
 
         RxJavaPlugins.setIoSchedulerHandler { t ->  Schedulers.trampoline() }
@@ -78,13 +78,13 @@ class ExampleUnitTest : KoinTest {
                 )
         )
 
-        val navigator = spyk(object : CountySelectNavigator {
+        val navigator = spyk(object : WfCountySelectNavigator {
             override fun gotoWeatherForecast(record: WeatherForecast.Response.Records) {
                 print("gotoWeatherForecast succeed")
             }
         })
 
-        val countySelectVM = get<CountySelectVM> { parametersOf(navigator) }
+        val countySelectVM = get<WfCountySelectVM> { parametersOf(navigator) }
 
         countySelectVM.remoteGetWeatherForecast(CWB_API_CountyCode.高雄市)
 

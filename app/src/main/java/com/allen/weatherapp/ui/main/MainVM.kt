@@ -13,18 +13,18 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
+import com.allen.weatherapp.App
 import com.allen.weatherapp.R
+import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectNavigator
 import kotlinx.coroutines.delay
 
-class MainVM(application : Application) : AndroidViewModel(application) {
+class MainVM(application : Application,
+             var mainNavigator: MainNavigator) : AndroidViewModel(application) {
 
-    var liveDataTest:MutableLiveData<View> = MutableLiveData()
-
-    init {
-        liveDataTest.value = null
+    fun showWeatherForecastDialog(view : View) {
+        mainNavigator.goToPage(R.id.action_page1Fragment_to_dialog1Fragment)
     }
-
-    fun showCountySelectDialog(view : View) {
-        liveDataTest.value = view
+    fun showPM25Dialog(view : View) {
+        mainNavigator.goToPage(R.id.action_page1Fragment_to_dialog2Fragment)
     }
 }

@@ -1,4 +1,4 @@
-package com.allen.weatherapp.ui.weatherforecast
+package com.allen.weatherapp.ui.weatherforecast.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.allen.core.remote.cwb.model.WeatherForecast
 import com.allen.weatherapp.R
 import com.allen.weatherapp.databinding.FragmentWeatherForecastBinding
+import com.allen.weatherapp.ui.pm25search.countyselect.BrsCountySelectModule
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 import org.koin.core.parameter.parametersOf
 
 
 class WeatherForecastFragment : Fragment() {
+    init {
+        loadKoinModules(WeatherForecastModule)
+    }
+
     lateinit var binding : FragmentWeatherForecastBinding
 
     val viewModel : WeatherForecastVM by viewModel()

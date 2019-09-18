@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="pm25model" type="com.allen.core.remote.epa.model.PM25"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/custom_ripple_01"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintVertical_bias="0.1"
+                    android:text="@{pm25model.county}"
+                    android:textSize="30sp"
+                    android:id="@+id/tv_county_name"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_county_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintVertical_bias="0.1"
+                    android:text="@{pm25model.site}"
+                    android:textSize="30sp"
+                    android:id="@+id/tv_site_name"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_county_name"
+                    app:layout_constraintStart_toStartOf="@id/tv_county_name"
+                    android:layout_marginStart="10dp"
+                    android:text="PM2.5："
+                    android:textSize="20sp"
+                    android:id="@+id/tv_title"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_county_name"
+                    app:layout_constraintStart_toEndOf="@id/tv_title"
+                    android:text="@{pm25model.PM25 + pm25model.itemUnit}"
+                    android:textSize="20sp"
+                    android:id="@+id/tv_data"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    app:layout_constraintStart_toStartOf="@id/tv_county_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="資料更新時間："
+                    android:textSize="20sp"
+                    android:id="@+id/tv_time_title"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    app:layout_constraintStart_toEndOf="@id/tv_time_title"
+                    android:text="@{pm25model.dataCreationDate}"
+                    android:textSize="20sp"
+                    android:id="@+id/tv_time"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  android:background="#000000"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

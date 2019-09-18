@@ -1,11 +1,11 @@
 package com.allen.weatherapp.di
 
-import com.allen.core.remote.cwb.ApiService
+import com.allen.core.remote.cwb.CWB_ApiService
 import com.allen.core.remote.cwb.model.WeatherForecast
+import com.allen.core.remote.epa.EPA_ApiService
 import com.allen.weatherapp.MainActivity
-import com.allen.weatherapp.ui.main.MainVM
-import com.allen.weatherapp.ui.weatherforecast.ForecastReportAdapter
-import com.allen.weatherapp.ui.weatherforecast.WeatherForecastVM
+import com.allen.weatherapp.ui.weatherforecast.detail.ForecastReportAdapter
+import com.allen.weatherapp.ui.weatherforecast.detail.WeatherForecastVM
 import com.allen.weatherapp.util.RetrofitFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -29,23 +29,31 @@ val AppModule = module {
 
 val RemoteModule  = module {
     factory {
-        RetrofitFactory.createService<ApiService>(ApiService.BASE_URL.toHttpUrlOrNull() as HttpUrl)
+        RetrofitFactory.createService<CWB_ApiService>(CWB_ApiService.BASE_URL.toHttpUrlOrNull() as HttpUrl)
+    }
+    factory {
+        RetrofitFactory.createService<EPA_ApiService>(EPA_ApiService.BASE_URL.toHttpUrlOrNull() as HttpUrl)
     }
 }
 
 val TestRemoteModule = module {
     factory {
-        RetrofitFactory.createService<ApiService>(get<MockWebServer>().url("/"))
+        RetrofitFactory.createService<CWB_ApiService>(get<MockWebServer>().url("/"))
+    }
+    factory {
+        RetrofitFactory.createService<EPA_ApiService>(get<MockWebServer>().url("/"))
     }
 }
 
 val ViewModelModule = module {
-    viewModel { MainVM(get())}
-
     viewModel { WeatherForecastVM(get()) }
 }
 
 val WeatherForecastModule = module {
-    factory { (reportData : WeatherForecast.Response.Records) -> ForecastReportAdapter(reportData) }
+    factory { (reportData : WeatherForecast.Response.Records) ->
+        ForecastReportAdapter(
+            reportData
+        )
+    }
 }
 
