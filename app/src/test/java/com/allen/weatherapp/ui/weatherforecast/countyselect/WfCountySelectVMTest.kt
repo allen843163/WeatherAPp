@@ -1,44 +1,43 @@
-package com.allen.weatherapp
+package com.allen.weatherapp.ui.weatherforecast.countyselect
 
-import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectNavigator
-import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectVM
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.schedulers.Schedulers
-import org.junit.After
-import org.junit.Test
-import org.junit.Before
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
-import org.koin.test.KoinTest
-import org.koin.test.get
 import androidx.test.core.app.ApplicationProvider
 import com.allen.core.remote.cwb.CWB_API_CountyCode
 import com.allen.core.remote.cwb.model.TestData
 import com.allen.core.remote.cwb.model.WeatherForecast
-import com.allen.weatherapp.di.*
-import com.allen.weatherapp.ui.weatherforecast.countyselect.WfCountySelectModule
+import com.allen.weatherapp.App
+import com.allen.weatherapp.di.AppModule
+import com.allen.weatherapp.di.TestRemoteModule
+import com.allen.weatherapp.ui.weatherforecast.detail.WeatherForecastModule
 import com.google.gson.GsonBuilder
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.spyk
+import io.mockk.verify
+import io.reactivex.plugins.RxJavaPlugins
+import io.reactivex.schedulers.Schedulers
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import org.junit.After
+import org.junit.Before
+
+import org.junit.Assert.*
+import org.junit.Test
 import org.junit.runner.RunWith
+import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import org.koin.core.parameter.parametersOf
+import org.koin.test.KoinTest
+import org.koin.test.get
 import org.robolectric.RobolectricTestRunner
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 @RunWith(RobolectricTestRunner::class)
-class ExampleUnitTest : KoinTest {
+class WfCountySelectVMTest : KoinTest {
 
     lateinit var mockWebServer : MockWebServer
 
     @Before
-    fun before() {
+    fun setUp() {
         MockKAnnotations.init(this)
 
         stopKoin()
@@ -55,15 +54,16 @@ class ExampleUnitTest : KoinTest {
 
         mockWebServer.start()
     }
+
     @After
-    fun after() {
+    fun tearDown() {
         mockWebServer.shutdown()
 
         stopKoin()
     }
 
     @Test
-    fun GetWeatherForecast_Test() {
+    fun remoteGetWeatherForecast_Test() {
         println("start test")
 
         val gson = GsonBuilder().create()
@@ -90,5 +90,4 @@ class ExampleUnitTest : KoinTest {
 
         verify {navigator.gotoWeatherForecast(any())}
     }
-
 }

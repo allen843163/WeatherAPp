@@ -45,15 +45,3 @@ val TestRemoteModule = module {
     }
 }
 
-val ViewModelModule = module {
-    viewModel { WeatherForecastVM(get()) }
-}
-
-val WeatherForecastModule = module {
-    factory { (reportData : WeatherForecast.Response.Records) ->
-        ForecastReportAdapter(
-            reportData
-        )
-    }
-}
-
