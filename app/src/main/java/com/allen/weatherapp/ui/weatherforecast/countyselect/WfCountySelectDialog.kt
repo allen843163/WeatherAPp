@@ -67,7 +67,6 @@ class WfCountySelectDialog : DialogFragment(),
         }
 
         override fun getItemCount(): Int {
-            Log.d("Allen123", CWB_API_CountyCode.values().size.toString())
             return CWB_API_CountyCode.values().size
         }
 

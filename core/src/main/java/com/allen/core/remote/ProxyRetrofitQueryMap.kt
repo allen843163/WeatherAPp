@@ -3,7 +3,9 @@ package com.allen.core.remote
 import java.util.*
 import kotlin.collections.HashSet
 
-
+/**
+ * Reference : https://github.com/square/retrofit/issues/1324
+ */
 class ProxyRetrofitQueryMap(m: Map<String, Any>) : HashMap<String, Any>(m) {
 
     override val entries: MutableSet<MutableMap.MutableEntry<String, Any>>

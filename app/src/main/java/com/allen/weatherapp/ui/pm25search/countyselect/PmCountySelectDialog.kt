@@ -70,7 +70,6 @@ class PmCountySelectDialog : DialogFragment(),
         }
 
         override fun getItemCount(): Int {
-            Log.d("AllenTest", EPA_API_CountyCode.values().size.toString())
             return EPA_API_CountyCode.values().size
         }
 
