@@ -45,7 +45,7 @@ class WfCountySelectVMTest : KoinTest {
         startKoin {
             androidLogger()
             androidContext(ApplicationProvider.getApplicationContext<App>())
-            modules(listOf(WfCountySelectModule, TestRemoteModule, AppModule, WeatherForecastModule))
+            modules(listOf(WfCountySelectModule, TestRemoteModule, AppModule))
         }
 
         RxJavaPlugins.setIoSchedulerHandler { t ->  Schedulers.trampoline() }

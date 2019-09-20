@@ -25,13 +25,17 @@ class PmCountySelectDialog : DialogFragment(),
     PmCountySelectNavigator {
 
     init {
-        loadKoinModules(BrsCountySelectModule)
+        loadKoinModules(PmCountySelectModule)
     }
 
     override fun gotoPm25Detail(arrayOfPM25: ArrayList<PM25>) {
         val bundle = bundleOf("pm25" to arrayOfPM25)
 
         findNavController().navigate(R.id.action_dialog2Fragment_to_page3Fragment,bundle)
+    }
+
+    override fun gotoPm25DetailFail() {
+        Log.d("AllenTest", "go to PM25 Detail Fail")
     }
 
     lateinit var binding : DialogPmCountySelectBinding

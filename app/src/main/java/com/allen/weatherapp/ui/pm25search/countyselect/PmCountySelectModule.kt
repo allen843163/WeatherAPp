@@ -4,7 +4,7 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 
-val BrsCountySelectModule = module(override = true) {
+val PmCountySelectModule = module(override = true) {
     viewModel {
             (pmCountySelectNavigator: PmCountySelectNavigator) ->
         PmCountySelectVM(get(), pmCountySelectNavigator, get())

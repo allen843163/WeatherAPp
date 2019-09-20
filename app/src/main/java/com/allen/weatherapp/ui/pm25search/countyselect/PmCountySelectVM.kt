@@ -20,6 +20,7 @@ open class PmCountySelectVM(application : Application,
                     pmCountySelectNavigator.gotoPm25Detail(it)
                 },
                 {
+                    pmCountySelectNavigator.gotoPm25DetailFail()
                     it.printStackTrace()
                 }
             )

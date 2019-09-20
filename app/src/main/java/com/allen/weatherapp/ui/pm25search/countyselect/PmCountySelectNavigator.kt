@@ -4,4 +4,5 @@ import com.allen.core.remote.epa.model.PM25
 
 interface PmCountySelectNavigator {
     fun gotoPm25Detail(arrayOfPM25 : ArrayList<PM25>)
+    fun gotoPm25DetailFail()
 }
